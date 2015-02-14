@@ -1,5 +1,5 @@
 
-/**  FINAL UPDATE AND STUFFljshafkljhsadkjhsaf
+/**  FINAL UPDATE AND STUFF
  * this is lab #1.
  * @author Joshua.Rodstein
  * 1-20-15
