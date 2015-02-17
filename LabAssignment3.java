@@ -3,7 +3,7 @@ import java.util.Random;
 
 
 /**
- * Lab Assignment 3   duuuuude
+ * Lab Assignment 3
  * @author joshua.rodstein
  * 2/6/15
  */
