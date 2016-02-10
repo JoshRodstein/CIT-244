@@ -1,0 +1,80 @@
+**
+ * Lab Assignment 2
+ * CIT - 244
+ * @author joshua.rodstein
+ * 2.10.16
+ */
+ 
+public class LabAssign2 {
+
+    public static void main(String[] args) {
+        boolean repeat = true;
+        String inputS;
+        long input = 0;
+        int stepSum;
+        int[] numArray = new int[0];
+        java.util.Scanner scan = new java.util.Scanner(System.in);
+
+        do {
+            System.out.print("Enter a credit card number as a long integer: "
+                    + " --> ");
+            try {
+                input = scan.nextLong();
+                repeat = false;
+            } catch (java.util.InputMismatchException e) {
+                scan.next();
+            }
+        } while (repeat); 
+   
+        
+
+        numArray = new int[String.valueOf(input).length()];
+        if (numArray.length < 12 && numArray.length > 17) {
+            loadArray(numArray, input);
+            stepSum = augArray(numArray);
+            System.out.println(input + isCardValid(stepSum));
+        } else {
+            System.out.println(input + " is invalid");
+        }
+
+        System.exit(0);
+    }
+    
+    
+
+    private static void loadArray(int[] array, long cardNum) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (cardNum % 10);
+            cardNum *= .1;
+        }
+    }
+
+    public static int augArray(int[] array) {
+        int temp, step1 = 0, step2 = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (!(i != 1 && i % 2 == 0)) {
+                array[i] *= 2;
+                if (array[i] > 9) {
+                    temp = array[i] % 10;
+                    array[i] *= .1;
+                    array[i] += temp;
+                }
+                step1 += array[i];
+            } else {
+                step2 += array[i];
+            }
+        }
+
+        return (step1 + step2);
+    }
+
+    public static String isCardValid(int sumNum) {
+        if ((sumNum) % 10 == 0) {
+            return (" is valid");
+        } else {
+            return (" is invalid");
+        }
+    }
+
+}
