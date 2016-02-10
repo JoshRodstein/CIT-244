@@ -1,0 +1,63 @@
+import java.util.Random;
+
+/**
+ * Lab Assignment 1 This program simulates a game of craps
+ *
+ * @author Joshua Rodstein 1.21.16
+ */
+public class LabAssignment1 {
+
+    public static void main(String[] args) {
+        int rollSum = 0, rollCount = 0, point = 0;
+        boolean repeat = false;
+
+        //DoWhile loop that runs at least once, and repeats only if point is set   
+        do {
+            System.out.print("You rolled ");
+            // rollDice returns/assigns sum of rolls to rollSum
+            rollSum = rollDice();  
+            System.out.println(" = " + rollSum);
+
+            if (rollCount == 0) {
+                if (rollSum == 2 || rollSum == 3 || rollSum == 12) {
+                    System.out.println("You lose");
+                } else if (rollSum == 7 || rollSum == 11) {
+                    System.out.println("You win");
+                } else {
+                    System.out.println("The point is " + rollSum);
+                    point = rollSum;
+                    // allows loop to repeat and re-roll for point
+                    repeat = true;
+                    // increment rollCount by 1 to enter into 2nd half of if/else on next pass
+                    rollCount++;
+                }
+            } else if (rollSum == point) {
+                System.out.println("You win");
+                repeat = false; // allows for loop to exit 
+            } else if (rollSum == 7) {
+                System.out.println("You lose");
+                repeat = false; // allows for loop to exit 
+            }
+        } while (repeat == true); 
+
+        System.exit(0);
+    }
+
+    public static int rollDice() {
+        Random rollGen = new Random();
+        int roll, Sum = 0;
+
+        // for loop rolls twice and sums the rolls
+        for (int i = 0; i < 2; i++) {
+            roll = rollGen.nextInt(6) + 1;
+            System.out.print(roll);
+            if (i == 0) {
+                System.out.print(" + ");
+            }
+            Sum += roll;
+        }
+
+        return Sum;
+    }
+
+}
