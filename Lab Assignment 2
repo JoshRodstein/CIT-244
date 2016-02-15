@@ -27,7 +27,7 @@ public class LabAssign2 {
 
         numArray = new int[String.valueOf(input).length()];
         
-        for (int i = 0; i < numArray.length; i++) {
+        for (int i = 0; i <= numArray.length; i++) {
             numArray[i] = (int) (cardNum % 10);
             cardNum *= .1;
         };
