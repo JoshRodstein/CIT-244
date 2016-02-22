@@ -28,6 +28,7 @@ public class LabAssign2REVISE {
 
         size = String.valueOf(input).length();
         if (size > 12 && size < 17) {
+            // this does this.. etc.. etc... 
             numArray = new int[size];
             loadArray(numArray, input);
         } else {
