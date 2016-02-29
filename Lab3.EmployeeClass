@@ -1,0 +1,86 @@
+/**
+ *
+ * @author Family
+ */
+public class Employee {
+
+    private String name;
+    private Date HireDate;
+    private int departmentCode;
+    private int numberOfEmployees;
+
+    public Employee() {
+        name = "";
+        HireDate = new Date();
+        departmentCode = 0;
+        numberOfEmployees++;
+    }
+
+    public Employee(String theName, Date theDate, int theDeptCode) {
+        name = theName;
+        HireDate = theDate;
+        departmentCode = theDeptCode;
+        numberOfEmployees++;
+    }
+
+    public Employee(Employee originalObject) {
+        name = originalObject.getName();
+        HireDate = originalObject.getHireDate();
+        departmentCode = originalObject.getDepartmentCode();
+        numberOfEmployees = originalObject.getNumberOfHired();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Date getHireDate() {
+        return HireDate;
+    }
+
+    public int getDepartmentCode() {
+        return departmentCode;
+    }
+
+    public int getNumberOfHired() {
+        return numberOfEmployees;
+    }
+
+    public void setName(String newName) {
+        name = newName;
+
+    }
+
+    public void setHireDate(Date newDate) {
+        HireDate = newDate;
+    }
+
+    public void setDepartmentCode(int newCode) {
+        departmentCode = newCode;
+    }
+
+    public String toString() {
+        String hDate
+                = "Name: " + this.getName()
+                + "\nHired Date: " + getHireDate()
+                + "\nDepartment code: " + this.getDepartmentCode();
+
+        return hDate;
+    }
+
+    public boolean equals(Object otherObject) {
+        if (otherObject == null) {
+            return false;
+        } else if (!(otherObject instanceof Employee)) {
+            return false;
+        } else {
+            Employee otherEmployee = (Employee) otherObject;
+            return (name.equals(otherEmployee.name)
+                    && HireDate.equals(otherEmployee.HireDate)
+                    && departmentCode == otherEmployee.departmentCode);
+        }
+    }
+
+}
+
+
