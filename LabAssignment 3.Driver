@@ -29,7 +29,7 @@ public class LabAssignment3 {
                 System.out.print("Enter hire date in the format of "
                         + "MM DD YYYY with spacing --> ");
                 date = scan.nextLine();
-            } while (!date.matches("\\d[1-12] \\d[1-31] \\d[20]\\d[00-99]"));
+            } while (!date.matches("(0[1-9]|1[012]) (0[1-9]|[12][0-9]|3[01]) (20)\\d\\d")); //updated regex for MM DD YYYY
             dateAry = date.split(" ");
             hireDate = new Date(Integer.valueOf(dateAry[0]),
                     Integer.valueOf(dateAry[1]), Integer.valueOf(dateAry[2]));
