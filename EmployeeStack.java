@@ -31,7 +31,8 @@ public class EmployeeStack extends ArrayList<Employee> {
     }
 
     public boolean push(Employee o) {
-        return add(o);
+        add(o);
+        return true;
     }
 
     public int search(Employee o) {
